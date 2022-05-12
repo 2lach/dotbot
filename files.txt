@@ -1,0 +1,6 @@
+/Users/stefanlachmann/.yarnrc
+/Users/stefanlachmann/.z
+/Users/stefanlachmann/.zlogin
+/Users/stefanlachmann/.zshenv
+/Users/stefanlachmann/.zshrc
+# Leave this as the last line

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# STEP 3
+# copy files
+
+DOTBOT_DIR="$1"
+
+
+files="$PWD/files.txt"
+
+mkdir -p "$DOTBOT_DIR/files"
+
+while IFS= read -r file; do
+ # verify that the file exists
+ [[ -f $file ]] && echo "$file: This file does not exist!"
+ [[ $file ]] && cp -rv "$file" "$PWD/files/$file" >> file_index.txt
+done < "$files"
+
+echo "# STEP 3 completed"
+echo ""
+
+# STEP 4
+# copy files
+
+folders="$PWD/folders.txt"
+mkdir -p "$DOTBOT_DIR/folders"
+
+# add a list of ignored folders match them with regex
+# ignoredFolders() {
+#     ignorelist="$PWD/ignorelist.txt"
+#     shift
+#     while IFS= read -r file; do
+#     if [ -z "${string##*$ignorelist*}" ] ;then
+#         echo "folders path $1 contains substring found in ignore list;"
+#     fi
+#     done < "$ignorelist"
+#     string="$1"
+# }
+
+
+
+while IFS= read -r file; do
+ # verify that the file exists
+ [[ -d $folder ]] && echo "$folder: This folder does not exist!"
+   if [[ "$folder" == *"node_modules"* ]]; then
+     echo "ignoring node_modules"
+   else
+      [[ $folder ]] && cp -rv "$folder" "$PWD/folders/$folder" >> folders_index.txt
+   fi
+done < "$folders"
+
+echo "# STEP 4 completed"
+echo ""

@@ -1,0 +1,3 @@
+/Users/stefanlachmann/.azure
+/Users/stefanlachmann/go/bin
+# Leave this as the last line
