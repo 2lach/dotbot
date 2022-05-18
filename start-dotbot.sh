@@ -3,19 +3,16 @@
 DOTBOT_DIR="$HOME/projects/dotbot"
 
 # keepalive loop
-log_this () {
-while true; do
-	logname="$(date +"%d-%m-%Y")"
-	echo "$@" | tee > "$DOTBOT_DIR/logfile-$logname.log"
-  sleep 60
-  kill -0 "$$" || exit
-done 2>/dev/null &
+log_this() {
+	while true; do
+		logname="$(date +"%d-%m-%Y")"
+		echo "$@" | tee >"$DOTBOT_DIR/logfile-$logname.log"
+		sleep 60
+		kill -0 "$$" || exit
+	done 2>/dev/null &
 }
 
-
-
-
-printf "Dotbot is about to start, have you filled in the config files?\nThat would be files.txt and folders.txt (y/n): "  && read -r answer
+printf "Dotbot is about to start, have you filled in the config files?\nThat would be files.txt and folders.txt (y/n): " && read -r answer
 
 # intro
 [[ "$answer" == *"y"* ]] && echo "Do you want to proceed? (y/n)" && read -r answer
