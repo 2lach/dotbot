@@ -36,3 +36,10 @@ folders:
 
 
 I built it mostly for my own needs so dotbot should work fine on any unix based system, probably not on windows.
+
+
+
+# THIS REPO IS DEPRECATED
+newer fancier version can be found at [Dotbot](https://github.com/stefanlachmann/dotbot)
+
+
